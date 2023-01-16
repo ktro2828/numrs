@@ -1,0 +1,16 @@
+[package]
+name = "numrs"
+version = "0.1.0"
+authors = ["Kotaro Uetake"]
+edition = "2021"
+readme = "README.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "numrs"
+path = "src/lib.rs"
+
+[dependencies]
+num = "0.1.32"
+rand = "0.8.5"
