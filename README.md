@@ -7,15 +7,15 @@ A toy project of numerical computation library for Rust inspired by Numpy.
 - [x]: 1D array
 
 ```rust
-let arr = NdArray::new(vec![1, 2, 3, 4]); // [1, 2, 3, 4]
+let arr = NdArray::new(&vec![1, 2, 3, 4]); // [1, 2, 3, 4]
 ```
 
 - [x]: `+`, `-`, `*`, `==`, `!=` operators
 
 ```rust
-let arr1 = NdArray::new(vec![1, 2, 3, 4]);
-let arr2 = NdArray::new(vec![1, 2, 3, 4]);
-let arr3 = NdArray::new(vec![0, 0, 0, 0]);
+let arr1 = NdArray::new(&vec![1, 2, 3, 4]);
+let arr2 = NdArray::new(&vec![1, 2, 3, 4]);
+let arr3 = NdArray::new(&vec![0, 0, 0, 0]);
 
 let add = arr1 + arr2; // [2, 4, 6, 8]
 let sub = arr1 - arr2; // [0, 0, 0, 0]
@@ -28,7 +28,7 @@ let ne = arr1 != arr3; // true
 - [x]: `min`, `max`, `sum` methods
 
 ```rust
-let arr = NdArray::new(vec![1, 2, 3, 4]);
+let arr = NdArray::new(&vec![1, 2, 3, 4]);
 let min = arr.min(); // 1
 let max = arr.max(); // 4
 let sum = arr.sum(); // 10
@@ -37,8 +37,8 @@ let sum = arr.sum(); // 10
 - [x]: `dot` method
 
 ```rust
-let arr1 = NdArray::new(vec![1, 2, 3]);
-let arr2 = NdArray::new(vec![1, 2, 3]);
+let arr1 = NdArray::new(&vec![1, 2, 3]);
+let arr2 = NdArray::new(&vec![1, 2, 3]);
 let dot = arr1.dot(&arr2); // 14
 ```
 
@@ -54,7 +54,7 @@ let random = NdArray::random(4);
 - [x]: `linalg::norm` function
 
 ```rust
-let arr = NdArray::new(vec![1, 1, 1]);
+let arr = NdArray::new(&vec![1, 1, 1]);
 let norm = linalg::norm(&arr);
 ```
 

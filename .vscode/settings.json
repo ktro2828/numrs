@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["arange", "dtype", "numrs", "linalg"]
+  "cSpell.words": ["arange", "dtype", "numrs", "linalg"],
+  "ros.distro": "galactic"
 }

@@ -12,10 +12,9 @@ pub struct NdArray<T> {
 
 impl<T: Dtype> NdArray<T> {
     // A::new()
-    pub fn new(v: Vec<T>) -> Self {
-        let d = v.clone();
+    pub fn new(v: &Vec<T>) -> Self {
         NdArray {
-            data: d,
+            data: v.clone(),
             size: v.len(),
             shape: (1, v.len()),
         }
@@ -68,7 +67,7 @@ impl<T: Dtype> NdArray<T> {
             data.push(i);
             i += step;
         }
-        return NdArray::new(data);
+        return NdArray::new(&data);
     }
 }
 
@@ -153,7 +152,7 @@ impl<T: Dtype> Add<NdArray<T>> for NdArray<T> {
 
     fn add(self, rhs: Self) -> Self::Output {
         if self.len() == rhs.len() {
-            let mut ret = NdArray::<T>::new(self.data.clone());
+            let mut ret = NdArray::<T>::new(&self.data);
             for i in 0..self.len() {
                 ret[i] = self[i] + rhs[i];
             }
@@ -170,7 +169,7 @@ impl<T: Dtype> Sub<NdArray<T>> for NdArray<T> {
 
     fn sub(self, rhs: Self) -> Self::Output {
         if self.len() == rhs.len() {
-            let mut ret = NdArray::<T>::new(self.data.clone());
+            let mut ret = NdArray::<T>::new(&self.data);
             for i in 0..self.len() {
                 ret[i] = self[i] - rhs[i];
             }
@@ -187,7 +186,7 @@ impl<T: Dtype> Mul<NdArray<T>> for NdArray<T> {
 
     fn mul(self, rhs: Self) -> Self::Output {
         if self.len() == rhs.len() {
-            let mut ret = NdArray::<T>::new(self.data.clone());
+            let mut ret = NdArray::<T>::new(&self.data);
             for i in 0..self.len() {
                 ret[i] = self[i] * rhs[i];
             }
